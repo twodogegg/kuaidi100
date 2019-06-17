@@ -1,0 +1,19 @@
+{
+    "name": "twodogeggs\/kuaidi100",
+    "description": "基于快递1，查询智能推送，云打印，短信",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "twodogegg",
+            "email": "971270272@qq.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^6.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Twodogeggs\\Kuaidi100\\": "src"
+        }
+    }
+}
