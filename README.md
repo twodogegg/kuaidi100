@@ -1,6 +1,10 @@
-## 快递
+## 建议快递100正式会员使用
 
-### 建议快递100正式会员使用
+## 安装
+
+```sybase
+composer require twodogeggs/kuaidi100
+```
 
 ### 实现功能
     - 实时查询
