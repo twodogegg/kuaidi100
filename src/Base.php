@@ -31,6 +31,14 @@ class Base
     ];
 
     /**
+     * @return array
+     */
+    public function getOptions(): array
+    {
+        return $this->options;
+    }
+
+    /**
      * Base constructor.
      * @param array $options
      * @throws InvalidArgumentException
