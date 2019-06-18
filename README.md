@@ -1,28 +1,87 @@
-<h1 align="center"> kuaidi100 </h1>
+## 快递
 
-<p align="center"> 基于快递1，查询智能推送，云打印，短信.</p>
+### 建议快递100正式会员使用
+
+### 实现功能
+    - 实时查询
+    - 智能查询 (不推荐使用)
+    - 订阅推送
+    - 云打印
+
+### 开始准备
+[快递100接口文档](https://www.kuaidi100.com/openapi/cloud_api.shtml#d03)
 
 
-## Installing
+### 实时查询
 
-```shell
-$ composer require twodogeggs/kuaidi100 -vvv
+```php
+use Twodogeggs\Kuaidi100\Tracker;
+
+try {
+    $kuaidi = new Tracker([
+        'key' => '你的key',
+        'customer' => '你的customer'
+    ]);
+    $kuaidi->track('快递公司编码', '快递单号');
+} catch (Exception $e) {
+    
+}
 ```
 
-## Usage
+### 智能查询（不推荐使用，查询结果不准）
 
-TODO
+```php
+use Twodogeggs\Kuaidi100\Tracker;
 
-## Contributing
+try {
+    $kuaidi = new Tracker([
+        'key' => '你的key'
+    ]);
 
-You can contribute in one of three ways:
+    $kuaidi->getAutoTrack('快递单号');
+} catch (Exception $e) {
+    
+}
 
-1. File bug reports using the [issue tracker](https://github.com/twodogeggs/kuaidi100/issues).
-2. Answer questions or fix bugs on the [issue tracker](https://github.com/twodogeggs/kuaidi100/issues).
-3. Contribute new features or update the wiki.
+```
 
-_The code contribution process is not very formal. You just need to make sure that you follow the PSR-0, PSR-1, and PSR-2 coding guidelines. Any new code contributions must be accompanied by unit tests where applicable._
+### 订阅推送
 
+```php
+use Twodogeggs\Kuaidi100\Poll;
+
+try {
+    $kuaidi = new Poll([
+        'key' => 'uexWYZbd2758',
+    ]);
+
+    $kuaidi->getPoll('快递公司编码', '快递单号', '回调地址', '返回格式');
+    $kuaidi->getPollByParam([
+        // 根据文档的param参数
+    ], 'json');
+} catch (Exception $e) {
+    
+}
+```
+
+
+### 云打印
+
+```php
+use Twodogeggs\Kuaidi100\CloudPrint;
+
+try {
+    $kuaidi = new CloudPrint([
+        'customer' => '快递公司编码',
+        'key' => '申请的key',
+        'secret' => '分配的secret'
+    ]);
+} catch (Exception $e) {
+
+}
+
+```
+    
 ## License
 
 MIT
