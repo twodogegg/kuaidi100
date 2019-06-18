@@ -27,7 +27,8 @@ class Base
      */
     protected $options = [
         'customer' => '',
-        'key' => ''
+        'key' => '',
+        'secret' => ''
     ];
 
     /**
