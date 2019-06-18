@@ -37,6 +37,11 @@ class Tracker extends Base
     public function track(string $com,string $num)
     {
         $url = 'https://poll.kuaidi100.com/poll/query.do';
+
+        if (empty($this->options['customer'])) {
+            throw new InvalidArgumentException('customer不能为空');
+        }
+
         if (empty($com)) {
             throw new InvalidArgumentException('物流公司编码不能为空');
         }
@@ -62,6 +67,7 @@ class Tracker extends Base
             ])->getBody()->getContents();
             return $response;
         } catch (Exception $e) {
+            print_r($e);
             throw new HttpException($e->getMessage(), $e->getCode(), $e);
         }
     }

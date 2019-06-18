@@ -38,7 +38,7 @@ class Base
     public function __construct($options = [])
     {
         if (empty($options['key'])) {
-            throw new InvalidArgumentException('key 不能为空');
+            throw new InvalidArgumentException('key不能为空');
         }
 
         $this->options = array_merge($this->options, $options);
