@@ -48,7 +48,7 @@ class CloudPrint extends Base
         $this->sign = $sign = strtoupper(md5(json_encode($param).$t.$this->key.$this->options['secret']));
 
         $params = [
-            'method' => 'printOrder',
+            'method' => 'eOrder',
             'key' => $this->options['key'],
             'sign' => $sign,
             't' => $t,
