@@ -14,6 +14,16 @@ use Twodogeggs\Kuaidi100\Exceptions\InvalidArgumentException;
  */
 class CloudPrint extends Base
 {
+    private $sign;
+
+    /**
+     * @return mixed
+     */
+    public function getSign()
+    {
+        return $this->sign;
+    }
+
     /**
      * 云打印订单
      * @param array $param
@@ -35,7 +45,7 @@ class CloudPrint extends Base
 
         $t = time();
 
-        $sign = strtoupper(md5(json_encode($param).$t.$this->key.$this->options['secret']));
+        $this->sign = $sign = strtoupper(md5(json_encode($param).$t.$this->key.$this->options['secret']));
 
         $params = [
             'method' => 'printOrder',

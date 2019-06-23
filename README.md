@@ -84,6 +84,13 @@ try {
 
 }
 
+
+```
+
+### 云打印的sign
+
+```php
+$kuaidi->getSign();
 ```
     
 ## License
